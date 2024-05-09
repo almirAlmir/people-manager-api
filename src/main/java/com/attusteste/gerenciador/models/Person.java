@@ -11,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -28,7 +29,8 @@ public class Person implements Serializable{
 	@Column(name = "birth_date")
 	private LocalDate birth_date;
 	
-	//private List<Address> address = new ArrayList();
+	@OneToMany(mappedBy = "person")
+	private List<Address> address = new ArrayList();
 	
 	public Person() {
 		
@@ -39,6 +41,16 @@ public class Person implements Serializable{
 		this.id = id;
 		this.name = name;
 		this.birth_date = birth_date;
+	}
+
+	
+	
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
 	}
 
 	public Long getId() {
