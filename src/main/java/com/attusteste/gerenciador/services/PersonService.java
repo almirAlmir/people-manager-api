@@ -27,6 +27,7 @@ public class PersonService {
 		return person.orElseThrow(() -> new RuntimeException("person not registred"));
 	}
 	
+	@Transactional
 	public Person create(Person p) {
 		
 		p.setId(null);
