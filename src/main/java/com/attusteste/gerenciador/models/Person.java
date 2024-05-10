@@ -30,7 +30,7 @@ public class Person implements Serializable{
 	private LocalDate birth_date;
 	
 	@OneToMany(mappedBy = "person")
-	private List<Address> address = new ArrayList();
+	private List<Address> address = new ArrayList<>();
 	
 	public Person() {
 		
