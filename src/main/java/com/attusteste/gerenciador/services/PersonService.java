@@ -9,16 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.attusteste.gerenciador.repositories.PersonRepository;
 import com.attusteste.gerenciador.models.Person;
-import com.attusteste.gerenciador.repositories.AddressRepository;
 
 @Service
 public class PersonService {
 	
 	@Autowired
 	private PersonRepository pr;
-	
-	@Autowired
-	private AddressRepository ar;
 	
 	public Person findById(Long id) {
 		
@@ -32,8 +28,7 @@ public class PersonService {
 		
 		p.setId(null);
 		p = this.pr.save(p);
-		this.ar.saveAll(p.getAddress());
-		
+
 		return p;
 	}
 	
