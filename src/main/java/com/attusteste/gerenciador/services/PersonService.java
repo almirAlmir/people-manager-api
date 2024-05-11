@@ -40,7 +40,7 @@ public class PersonService {
 	public Person update(Person p) {
 		
 		Person aux = findById(p.getId());
-		aux.setName(aux.getName());
+		aux.setName(p.getName());
 		
 		return this.pr.save(aux);
 	}
