@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,8 +45,7 @@ public class Person implements Serializable{
 		this.birth_date = birth_date;
 	}
 
-	
-	
+	@JsonIgnore
 	public List<Address> getAddress() {
 		return address;
 	}

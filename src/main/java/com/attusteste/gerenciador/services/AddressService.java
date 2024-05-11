@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.attusteste.gerenciador.models.Address;
 import com.attusteste.gerenciador.models.Person;
 import com.attusteste.gerenciador.repositories.AddressRepository;
 
+@Service
 public class AddressService {
 	
 	@Autowired
