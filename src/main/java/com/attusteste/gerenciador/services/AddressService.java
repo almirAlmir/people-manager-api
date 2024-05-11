@@ -1,5 +1,6 @@
 package com.attusteste.gerenciador.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,12 @@ public class AddressService {
 		aux.setStreet_address(a.getStreet_address());
 		
 		return this.ar.save(aux);
+	}
+	
+	public List<Address> findAllByPersonId(Long PersonId){
+		
+		List<Address> address_list = this.ar.findByPerson_Id(PersonId);
+		
+		return address_list;
 	}
 }

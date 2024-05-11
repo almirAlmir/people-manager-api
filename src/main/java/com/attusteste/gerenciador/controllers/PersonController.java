@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -20,7 +19,7 @@ import com.attusteste.gerenciador.models.Person;
 import com.attusteste.gerenciador.services.PersonService;
 
 @RestController
-@RequestMapping(value = "/people")
+@RequestMapping("/people")
 public class PersonController {
 	
 	@Autowired
