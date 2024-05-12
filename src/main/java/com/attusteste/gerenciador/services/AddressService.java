@@ -49,6 +49,15 @@ public class AddressService {
 		return this.ar.save(aux);
 	}
 	
+	@Transactional
+	public Address updateMainAddress(Address a) {
+		Address aux = findById(a.getId());
+		
+		aux.setMain_address(true);
+		
+		return this.ar.save(aux);
+	}
+	
 	public List<Address> findAllByPersonId(Long PersonId){
 		
 		List<Address> address_list = this.ar.findByPerson_Id(PersonId);

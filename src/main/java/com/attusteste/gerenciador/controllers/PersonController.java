@@ -60,5 +60,22 @@ public class PersonController {
 		
 		return ResponseEntity.noContent().build();
 	}
+	
+	//caminho que permite selecionar dentre os enderecos da pessoa o endereco principal
+	//isso atualiza o atributo main_address do endereco escolhido com 'true' enquanto faz com que todos os outros
+	//enderecos da pessoa recebam false
+	@PutMapping("{personId}/set/main_address/{main_addressId}")
+	public ResponseEntity<Person> update_mainAddress(@RequestBody Person p, @PathVariable Long personId, @PathVariable Long main_addressId){
+	    Person person = ps.findById(personId);
+		
+		person = ps.update_mainAddress(person, main_addressId);
+	    if (person != null) {
+	        return ResponseEntity.ok(person);
+	    } else {
+	        return ResponseEntity.notFound().build();
+	    }
+	}
+	
+	
 
 }

@@ -37,6 +37,9 @@ public class Address {
 	
 	@Column(name = "state")
 	private String state;
+	
+	@Column(name = "main_address")
+	private Boolean main_address;
 
 	public Address() {
 		
@@ -45,7 +48,7 @@ public class Address {
 	
 
 	public Address(Long id, Person person, String street_address, String cep, String number, String city,
-			String state) {
+			String state, Boolean main_address) {
 		super();
 		this.id = id;
 		this.person = person;
@@ -54,6 +57,7 @@ public class Address {
 		this.number = number;
 		this.city = city;
 		this.state = state;
+		this.main_address = main_address;
 	}
 
 
@@ -114,7 +118,13 @@ public class Address {
 		this.state = state;
 	}
 
+	public Boolean getMain_address() {
+		return main_address;
+	}
 
+	public void setMain_address(Boolean main_address) {
+		this.main_address = main_address;
+	}
 
 	@Override
 	public int hashCode() {

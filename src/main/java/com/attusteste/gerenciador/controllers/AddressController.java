@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.attusteste.gerenciador.models.Address;
+import com.attusteste.gerenciador.models.Person;
 import com.attusteste.gerenciador.services.AddressService;
 
 @RestController
@@ -23,7 +24,7 @@ public class AddressController {
 
 	@Autowired
 	private AddressService as;
-	
+	//Caminho de requisicao que permite consultar todos os enderecos cadastrados de uma pessoa
 	@GetMapping("/person/{personId}")
 	public ResponseEntity<List<Address>> findAllByPersonId(@PathVariable Long personId){
 		
@@ -31,7 +32,8 @@ public class AddressController {
 		
 		return ResponseEntity.ok().body(addresses);
 	}
-	
+
+	//caminho quepermite consultar individualmente qualquer endereco
 	@GetMapping("/{id}")
 	public ResponseEntity<Address> findById(@PathVariable Long id){
 		Address address = this.as.findById(id);
@@ -39,7 +41,7 @@ public class AddressController {
 		return ResponseEntity.ok().body(address);
 	}
 	
-	
+	//cadastro de endereço em uma pessoa cadastrada
 	@PostMapping
 	public ResponseEntity<Void> create(@RequestBody Address address){
 		this.as.create(address);
@@ -49,7 +51,7 @@ public class AddressController {
 		
 		return ResponseEntity.created(uri).build();
 	}
-	
+	//Atualiza endereco já cadastrado de uma pessoa
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> update(@RequestBody Address address, @PathVariable Long id){
 		
